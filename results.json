@@ -1,0 +1,70 @@
+{
+  "config": {
+    "model_id": "google/paligemma-3b-pt-224",
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_targets": [
+      "q_proj",
+      "v_proj",
+      "k_proj",
+      "o_proj"
+    ],
+    "trainable_params": "11,298,816 (0.39%)",
+    "training_steps": 800,
+    "effective_batch_size": 4,
+    "learning_rate": 0.0002,
+    "quantization": "4-bit NF4, bf16 compute",
+    "optimizer": "adamw_8bit"
+  },
+  "qualitative_5_samples": {
+    "ground_truth": [
+      "some planes are near several buildings in an airport .",
+      "A straight freeway goes through the lawn and some cars are driving on the freeway .",
+      "The roundabout with some exits and entrances is in the commercial area and a lawn is in the middle of the roundabout .",
+      "The folded mountain consists of a number of ridges and valleys and is covered with some vegetation .",
+      "A basketball court next to a lake and some trees beside ."
+    ],
+    "baseline_predictions": [
+      "Aerial view of the airport",
+      "I-10 in Houston",
+      "Satellite view",
+      "Satellite view",
+      "Satellite view"
+    ],
+    "finetuned_predictions": [
+      "many planes are parked in a row on the airport .",
+      "The straight freeway goes through the lawn and some cars are driving on the freeway .",
+      "The roundabout with some exits and entrances is surrounded by some buildings and a lawn is in the middle of the roundabout .",
+      "The folded mountain consists of some ridges and valleys and some vegetation is on the mountain .",
+      "A basketball court next to a lake and some trees beside ."
+    ]
+  },
+  "quantitative_100_samples": {
+    "baseline_bleu": {
+      "bleu": 0.0,
+      "precisions": [
+        0.16981132075471697,
+        0.033950617283950615,
+        0.0044444444444444444,
+        0.0
+      ],
+      "brevity_penalty": 0.08364847558278223,
+      "length_ratio": 0.2872628726287263,
+      "translation_length": 424,
+      "reference_length": 1476
+    },
+    "finetuned_bleu": {
+      "bleu": 0.31853548350376465,
+      "precisions": [
+        0.6001451378809869,
+        0.37402190923317685,
+        0.27843803056027167,
+        0.2189239332096475
+      ],
+      "brevity_penalty": 0.9313523943358435,
+      "length_ratio": 0.9336043360433605,
+      "translation_length": 1378,
+      "reference_length": 1476
+    }
+  }
+}
