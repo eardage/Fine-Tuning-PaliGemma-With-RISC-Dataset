@@ -10,6 +10,7 @@ using QLoRA, for METU DI725.
 ## Files
 - `notebook.ipynb` — full training and evaluation pipeline
 - `report.pdf` — 1-page report
+- `adapter/` — trained LoRA adapter weights
 - `results.json` — predictions and BLEU scores
 - `requirements.txt` — pinned package versions
 
